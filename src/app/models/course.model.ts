@@ -4,4 +4,5 @@ export class Course {
   subtitle: string = "";
   price: number = 0.0;
   createTime: Date = new Date();
+  thumbnailUrl: string = "";
 }

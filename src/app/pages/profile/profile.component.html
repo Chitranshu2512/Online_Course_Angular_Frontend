@@ -14,7 +14,7 @@
           </div>
           <div class="col-6 text-end">
             Current role is <strong>{{currentUser?.role}} </strong>
-            <button class="btn btn-primary" (click)="changeRole()">Change Role</button>
+            <!-- <button class="btn btn-primary" (click)="changeRole()">Change Role</button> -->
           </div>
         </div>
 
@@ -34,7 +34,7 @@
           <tr *ngFor="let item of purchaseList; index as ind">
             <th scope="row">{{ind + 1}}</th>
             <td>{{item.title}}</td>
-            <td>{{item.price | currency: 'USD'}}</td>
+            <td>{{item.price | currency: 'INR'}}</td>
             <td>{{item.purchaseTime | date: 'medium'}}</td>
           </tr>
           </tbody>

@@ -17,9 +17,15 @@ export class CourseService extends RequestBaseService{
     super(authenticationService, http);
   }
 
-  saveCourse(course: Course): Observable<any> {
-    return this.http.post(API_URL, course, {headers: this.getHeaders});
-  }
+  saveCourse(course: Course, thumbnail: File): Observable<any> {
+  const formData = new FormData();
+  formData.append('title', course.title);
+  formData.append('subtitle', course.subtitle);
+  formData.append('price', course.price.toString());
+  formData.append('thumbnail', thumbnail);
+  return this.http.post(API_URL + '/add', formData, {headers: this.getAuthHeaderOnly}); // Don't set headers here, Angular will handle it
+}
+
 
   deleteCourse(course: Course): Observable<any> {
     return this.http.delete(API_URL + '/' + course.id, {headers: this.getHeaders});

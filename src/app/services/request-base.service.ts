@@ -20,4 +20,12 @@ export abstract class RequestBaseService {
       }
     );
   }
+
+  get getAuthHeaderOnly(): HttpHeaders {
+  return new HttpHeaders({
+    authorization: 'Bearer ' + this.currentUser?.token
+    // Notice: No Content-Type here
+  });
+}
+
 }
